@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      
+      String str= "aaaaaaaaaaaaa";
+      int count=0, asize=0;
+      
+      System.out.println("the string is: " + str);
+      System.out.println();
+      char array[] = new char[20];
+      
+      str.getChars(0,13,array,0);
+      
+      System.out.println("the elements are: ");
+      
+      for(int i=0;i<array.length-1;i++) {
+        
+          if(array[i]==0) {
+            
+            break;
+          }
+          
+         System.out.print(array[i] + " ");
+         
+         asize++;
+      }
+      System.out.println("size of the array stored: " + asize);
+      System.out.println();
+      System.out.println();
+      
+      for(int j=0; j<asize;j++) {
+        
+        for(int k=j+1;k<asize;k++) {
+          
+          if(array[j]==array[k]) {
+            
+            count++;
+          }
+          if(count==11) {
+            
+            System.out.println("All the " + (count+2) + " elements are one which is " + array[j] + " and the same");
+          }
+        }
+      }
+  }
+}
