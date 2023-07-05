@@ -3,20 +3,20 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
       
-      String str= "aaaaaaaaaaaaa";
+      String str= "yyyyyyyyy";
       int count=0, asize=0;
       
       System.out.println("the string is: " + str);
-      System.out.println();
+      
       char array[] = new char[20];
       
-      str.getChars(0,13,array,0);
+      str.getChars(0,9,array,0);
       
       System.out.println("the elements are: ");
       
       for(int i=0;i<array.length-1;i++) {
         
-          if(array[i]==0) {
+          if(array[i]==0) {  //if alphanumeric then replace 0 with null
             
             break;
           }
@@ -25,6 +25,7 @@ public class Main {
          
          asize++;
       }
+      System.out.println();
       System.out.println("size of the array stored: " + asize);
       System.out.println();
       System.out.println();
@@ -35,13 +36,23 @@ public class Main {
           
           if(array[j]==array[k]) {
             
-            count++;
+            count++;  //we dont count the first element so we take count with default value as 1.
           }
-          if(count==11) {
+          
+          //if all the elements in the string are one and same.
+          if(j==0 && count==asize) {
             
-            System.out.println("All the " + (count+2) + " elements are one which is " + array[j] + " and the same");
+            System.out.println("All the " + (count+1) + " elements are one which is " + array[j] + " and the same");
           }
+          
         }
+          
       }
+      
+     //if none of the elements are same, i.e no duplicates at all
+          if(count==0) {
+            
+            System.out.println("No element in " + str + " is repeated. Therefore no duplicates"); 
+          }
   }
 }
